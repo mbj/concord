@@ -22,8 +22,8 @@ private
   # @api private
   #
   def initialize(*names)
-    if names.length > 2
-      raise 'Composition of more than two objects is not allowed'
+    if names.length > 3
+      raise 'Composition of more than three objects is not allowed'
     end
 
     @names = names
