@@ -35,7 +35,7 @@ describe Composition do
 
   context 'to much composition behavior' do
     specify 'it raises an error' do
-      expect { Composition.new(:a, :b, :c) }.to raise_error(RuntimeError, 'Composition of more than three objects is not allowed')
+      expect { Composition.new(:a, :b, :c, :d) }.to raise_error(RuntimeError, 'Composition of more than three objects is not allowed')
     end
   end
 end
