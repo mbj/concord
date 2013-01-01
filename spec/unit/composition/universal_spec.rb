@@ -15,6 +15,18 @@ describe Composition do
   let(:foo) { mock('Foo') }
   let(:bar) { mock('Bar') }
 
+  context 'initializer lines' do
+    it 'sets initializer correctly' do
+      klass = Class.new
+      # Nicher way to assert this?
+      klass.should_receive(:class_eval) do |code, file, line|
+        file.should eql(File.expand_path('../../../../lib/composition.rb', __FILE__))
+        line.should be(83)
+      end
+      klass.send(:include, Composition.new)
+    end
+  end
+
   context 'attribute behavior' do
     subject { instance_a }
 
