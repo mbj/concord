@@ -64,9 +64,7 @@ private
   # @api private
   #
   def define_readers(descendant)
-    @names.each do |name|
-      descendant.send(:attr_reader, name)
-    end
+    descendant.send(:attr_reader, *names)
   end
 
   # Define initializer
