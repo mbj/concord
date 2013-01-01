@@ -78,10 +78,11 @@ private
   # @api private
   #
   def define_initializer(descendant)
+    names = argument_names
     descendant.class_eval(<<-RUBY, __FILE__, __LINE__ + 1)
-      def initialize(#{param_names})                         # def initialize(foo, bar)
-        #{instance_variable_names} = #{local_variable_names} #   @foo, @bar = foo, bar
-      end                                                    # end
+      def initialize(#{names})          # def initialize(foo, bar)
+        #{instance_variable_names} = #{names} #   @foo, @bar = foo, bar
+      end                                     # end
     RUBY
   end
 
@@ -101,10 +102,8 @@ private
   #
   # @api private
   #
-  def param_names
+  def argument_names
     names.join(', ')
   end
-
-  alias_method :local_variable_names, :param_names
 
 end
