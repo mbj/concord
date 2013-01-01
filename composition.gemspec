@@ -9,7 +9,6 @@ Gem::Specification.new do |s|
   s.summary     = %q{Helper for object composition}
   s.description = s.summary
 
-  # git ls-files
   s.files            = `git ls-files`.split("\n")
   s.test_files       = `git ls-files -- {spec}/*`.split("\n")
   s.executables   = []
