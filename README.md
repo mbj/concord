@@ -46,7 +46,7 @@ Into shorter and easier to parse by eyes:
 
 ```ruby
 class ComposedObject
-  include Equalizer.new(:foo, :bar)
+  include Composition.new(:foo, :bar)
 end
 ```
 
