@@ -78,7 +78,7 @@ private
   def define_initializer(descendant)
     names = argument_names
     descendant.class_eval(<<-RUBY, __FILE__, __LINE__ + 1)
-      def initialize(#{names})          # def initialize(foo, bar)
+      def initialize(#{names})                # def initialize(foo, bar)
         #{instance_variable_names} = #{names} #   @foo, @bar = foo, bar
       end                                     # end
     RUBY
