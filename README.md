@@ -3,7 +3,7 @@ composition
 
 [![Build Status](https://secure.travis-ci.org/mbj/composition.png?branch=master)](http://travis-ci.org/mbj/composition)
 [![Dependency Status](https://gemnasium.com/mbj/composition.png)](https://gemnasium.com/mbj/composition)
-[![Code Climate](https://codeclimate.com/badge.png)](https://codeclimate.com/github/mbj/composition)
+[![Code Climate](https://codeclimate.com/github/mbj/composition.png)](https://codeclimate.com/github/mbj/composition)
 
 Library to transform this:
 
