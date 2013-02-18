@@ -21,7 +21,7 @@ describe Composition do
       # Nicher way to assert this?
       klass.should_receive(:class_eval) do |code, file, line|
         file.should eql(File.expand_path('../../../../lib/composition.rb', __FILE__))
-        line.should be(81)
+        line.should be(83)
       end
       klass.send(:include, Composition.new)
     end

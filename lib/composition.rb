@@ -64,7 +64,9 @@ private
   # @api private
   #
   def define_readers(descendant)
-    descendant.send(:attr_reader, *names)
+    attribute_names = names
+    descendant.send(:attr_reader, *attribute_names)
+    descendant.send(:public, *attribute_names)
   end
 
   # Define initializer
