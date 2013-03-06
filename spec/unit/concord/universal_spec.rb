@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe Composition do
+describe Concord do
 
   let(:class_under_test) do
     Class.new do
-      include Composition.new(:foo, :bar)
+      include Concord.new(:foo, :bar)
     end
   end
 
@@ -20,10 +20,10 @@ describe Composition do
       klass = Class.new
       # Nicher way to assert this?
       klass.should_receive(:class_eval) do |code, file, line|
-        file.should eql(File.expand_path('../../../../lib/composition.rb', __FILE__))
-        line.should be(83)
+        file.should eql(File.expand_path('../../../../lib/concord.rb', __FILE__))
+        line.should be(82)
       end
-      klass.send(:include, Composition.new)
+      klass.send(:include, Concord.new)
     end
   end
 
@@ -47,7 +47,7 @@ describe Composition do
 
   context 'to much composition behavior' do
     specify 'it raises an error' do
-      expect { Composition.new(:a, :b, :c, :d) }.to raise_error(RuntimeError, 'Composition of more than three objects is not allowed')
+      expect { Concord.new(:a, :b, :c, :d) }.to raise_error(RuntimeError, 'Composition of more than three objects is not allowed')
     end
   end
 end

@@ -21,14 +21,12 @@ UncommunicativeMethodName:
   - !ruby/regexp /[A-Z]/
 LongParameterList:
   max_params: 2
-  exclude: 
-    - "AUOM::Unit#initialize"   # 3 params
-    - "AUOM::Unit#self.new"     # 3 params
-    - "AUOM::Unit#self.resolve" # 3 params
+  exclude: []
   enabled: true
   overrides: {}
 FeatureEnvy:
-  exclude: []
+  exclude:
+  - Concord#define_readers
   enabled: true
 ClassVariable:
   exclude: []
@@ -48,19 +46,16 @@ UncommunicativeModuleName:
   - !ruby/regexp /[0-9]$/
 NestedIterators:
   ignore_iterators: []
-  exclude: 
-   - AUOM::Unit#initialize # 2 levels
+  exclude: []
   enabled: true
   max_allowed_nesting: 1
 LongMethod:
   max_statements: 5
-  exclude: 
-    - "AUOM::Inspection#pretty_unit" # 7 statements
+  exclude: []
   enabled: true
 Duplication:
   allow_calls: []
-  exclude:
-    - "AUOM::ClassMethods#new"     # invalid detection
+  exclude: []
   enabled: true
   max_calls: 1
 UtilityFunction:

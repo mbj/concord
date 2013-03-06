@@ -1,7 +1,7 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name        = 'composition'
+  s.name        = 'concord'
   s.version     = '0.0.1'
   s.authors     = ['Markus Schirp']
   s.email       = ['mbj@seonic.net']
