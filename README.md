@@ -1,9 +1,9 @@
-composition
-===========
+concord
+=======
 
-[![Build Status](https://secure.travis-ci.org/mbj/composition.png?branch=master)](http://travis-ci.org/mbj/composition)
-[![Dependency Status](https://gemnasium.com/mbj/composition.png)](https://gemnasium.com/mbj/composition)
-[![Code Climate](https://codeclimate.com/github/mbj/composition.png)](https://codeclimate.com/github/mbj/composition)
+[![Build Status](https://secure.travis-ci.org/mbj/concord.png?branch=master)](http://travis-ci.org/mbj/concord)
+[![Dependency Status](https://gemnasium.com/mbj/concord.png)](https://gemnasium.com/mbj/concord)
+[![Code Climate](https://codeclimate.com/github/mbj/concord.png)](https://codeclimate.com/github/mbj/concord)
 
 Library to transform this:
 
@@ -46,7 +46,7 @@ Into shorter and easier to parse by eyes:
 
 ```ruby
 class ComposedObject
-  include Composition.new(:foo, :bar)
+  include Concord.new(:foo, :bar)
 end
 ```
 
@@ -55,17 +55,12 @@ Sure the replacement is missing YARD docs, but IMHO it is better.
 Installation
 ------------
 
-There is no gem release so use the following git source in your Gemfile:
-
-```
-gem 'composition', :git => 'https://github.com/mbj/composition.git'
-# :github => 'mbj/composition' if you prefer plaintext easy MITM ready protocol
-```
+Install the gem `concord` via your prefered method.
 
 Credits
 -------
 
-* [mbj](https://github.com/mbj/composition)
+* [mbj](https://github.com/mbj)
 
 Contributing
 -------------
