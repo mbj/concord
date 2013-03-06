@@ -16,14 +16,16 @@ describe Concord do
   let(:bar) { mock('Bar') }
 
   context 'initializer lines' do
-    it 'sets initializer correctly' do
-      klass = Class.new
-      # Nicher way to assert this?
-      klass.should_receive(:class_eval) do |code, file, line|
-        file.should eql(File.expand_path('../../../../lib/concord.rb', __FILE__))
-        line.should be(82)
+    unless Devtools.jruby?
+      it 'sets initializer correctly' do
+        klass = Class.new
+        # Nicher way to assert this?
+        klass.should_receive(:class_eval) do |code, file, line|
+          file.should eql(File.expand_path('../../../../lib/concord.rb', __FILE__))
+          line.should be(82)
+        end
+        klass.send(:include, Concord.new)
       end
-      klass.send(:include, Concord.new)
     end
   end
 
