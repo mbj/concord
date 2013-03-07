@@ -14,7 +14,6 @@ Gem::Specification.new do |s|
   s.executables   = []
   s.require_paths = ['lib']
 
-  s.add_dependency('backports',           '~> 3.0.3')
   s.add_dependency('adamantium',          '~> 0.0.7')
   s.add_dependency('equalizer',           '~> 0.0.5')
 end
