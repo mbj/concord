@@ -66,6 +66,7 @@ private
   def define_readers(descendant)
     attribute_names = names
     descendant.send(:attr_reader, *attribute_names)
+    descendant.send(:public, *attribute_names)
   end
 
   # Define initializer
