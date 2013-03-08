@@ -22,10 +22,18 @@ describe Concord do
         # Nicher way to assert this?
         klass.should_receive(:class_eval) do |code, file, line|
           file.should eql(File.expand_path('../../../../lib/concord.rb', __FILE__))
-          line.should be(82)
+          line.should be(83)
         end
         klass.send(:include, Concord.new)
       end
+    end
+  end
+
+  context 'visibiluty' do
+    it 'should set attribute readers to public' do
+      klass = Class.new
+      klass.should_receive(:public).with(:foo)
+      klass.send(:include,Concord.new(:foo))
     end
   end
 
