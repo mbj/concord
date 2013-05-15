@@ -19,7 +19,7 @@ describe Concord do
     unless Devtools.jruby?
       it 'sets initializer correctly' do
         klass = Class.new
-        # Nicher way to assert this?
+        # Nicer way to assert this?
         klass.should_receive(:class_eval) do |code, file, line|
           file.should eql(File.expand_path('../../../../lib/concord.rb', __FILE__))
           line.should be(83)
@@ -32,16 +32,16 @@ describe Concord do
   context 'visibiluty' do
     it 'should set attribute readers to public' do
       klass = Class.new
-      klass.should_receive(:public).with(:foo)
-      klass.send(:include,Concord.new(:foo))
+      klass.send(:include, Concord.new(:foo))
+      klass.protected_instance_methods.should == [:foo]
     end
   end
 
   context 'attribute behavior' do
     subject { instance_a }
 
-    its(:foo) { should be(foo) }
-    its(:bar) { should be(bar) }
+    specify { subject.send(:foo).should be(foo) }
+    specify { subject.send(:bar).should be(bar) }
   end
 
   context 'equalization behavior' do
