@@ -33,7 +33,7 @@ describe Concord do
     it 'should set attribute readers to public' do
       klass = Class.new
       klass.send(:include, Concord.new(:foo))
-      klass.protected_instance_methods.should == [:foo]
+      klass.protected_instance_methods.map(&:to_sym).should == [:foo]
     end
   end
 
