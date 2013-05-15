@@ -18,6 +18,7 @@ class ComposedObject
   # @api private
   #
   attr_reader :foo
+  protected :foo
 
   # Return bar
   #
@@ -26,6 +27,7 @@ class ComposedObject
   # @api private
   #
   attr_reader :bar
+  protected :bar
 
   # Initialize object
   #
