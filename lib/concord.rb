@@ -106,4 +106,22 @@ private
     names.join(', ')
   end
 
-end
+  # Mixin for public attribute readers
+  class Public < self
+
+    # Hook called when module is included 
+    #
+    # @param [Class,Module] descendant
+    #
+    # @return [undefined]
+    #
+    # @api private
+    #
+    def included(descendant)
+      super
+      @names.each do |name|
+        descendant.send(:public, name)
+      end
+    end
+  end # Public
+end # Concord

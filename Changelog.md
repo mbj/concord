@@ -1,3 +1,7 @@
+# v0.1.1 2013-05-15
+
++ Add Concord::Public mixin defaulting to public attr_readers
+
 # v0.1.0 2013-05-15
 
 * [change] Set default attribute visibility to protected

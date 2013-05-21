@@ -60,4 +60,18 @@ describe Concord do
       expect { Concord.new(:a, :b, :c, :d) }.to raise_error(RuntimeError, 'Composition of more than three objects is not allowed')
     end
   end
+
+  context Concord::Public do
+    let(:class_under_test) do
+      Class.new do
+        include Concord::Public.new(:foo, :bar)
+      end
+    end
+
+    it 'should create public attr readers' do
+      object = class_under_test.new(:foo, :bar)
+      object.foo.should eql(:foo)
+      object.bar.should eql(:bar)
+    end
+  end
 end
