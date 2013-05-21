@@ -73,7 +73,7 @@ UncommunicativeVariableName:
   - !ruby/regexp /^.$/
   - !ruby/regexp /[0-9]$/
   - !ruby/regexp /[A-Z]/
-SimulatedPolymorphism:
+RepeatedConditional:
   enabled: true
   max_ifs: 1
 DataClump:
