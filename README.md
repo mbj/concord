@@ -12,7 +12,7 @@ class ComposedObject
   include Equalizer.new(:foo, :bar)
 
   # Return foo
-  # 
+  #
   # @return [Foo]
   #
   # @api private
@@ -53,6 +53,11 @@ end
 ```
 
 Sure the replacement is missing YARD docs, but IMHO it is better.
+
+Rubies
+------
+
+Tested under all >= 1.9 rubies.
 
 Installation
 ------------
