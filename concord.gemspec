@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.version     = '0.1.1'
   s.authors     = ['Markus Schirp']
   s.email       = ['mbj@schirp-dso.com']
-  s.homepage    = 'https://github.com/mbj/composition'
+  s.homepage    = 'https://github.com/mbj/concord'
   s.summary     = %q{Helper for object composition}
   s.description = s.summary
 
