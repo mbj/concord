@@ -45,7 +45,7 @@ describe Concord do
 
   context 'equalization behavior' do
     specify 'composed objects are equalized on attributes' do
-      expect(instance_a).to eql(instance_b)
+      expect(instance_a).to      eql(instance_b)
       expect(instance_a.hash).to eql(instance_b.hash)
       expect(instance_a).to      eql(instance_b)
       expect(instance_a).to_not  be(instance_c)
