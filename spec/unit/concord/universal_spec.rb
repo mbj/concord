@@ -21,8 +21,8 @@ describe Concord do
         klass = Class.new
         # Nicer way to assert this?
         klass.should_receive(:class_eval) do |code, file, line|
-          file.should eql(File.expand_path('../../../../lib/concord.rb', __FILE__))
-          line.should be(86)
+          expect(file).to eql(File.expand_path('../../../../lib/concord.rb', __FILE__))
+          expect(line).to be(86)
         end
         klass.send(:include, Concord.new)
       end
@@ -39,18 +39,17 @@ describe Concord do
   context 'attribute behavior' do
     subject { instance_a }
 
-    specify { subject.send(:foo).should be(foo) }
-    specify { subject.send(:bar).should be(bar) }
+    specify { expect(subject.send(:foo)).to be(foo) }
+    specify { expect(subject.send(:bar)).to be(bar) }
   end
 
   context 'equalization behavior' do
     specify 'composed objects are equalized on attributes' do
-      instance_a.should      == instance_b
-      instance_a.hash.should == instance_b.hash
-      instance_a.should      eql(instance_b)
-
-      instance_a.should_not  == instance_c
-      instance_a.should_not  eql(instance_c)
+      expect(instance_a).to eql(instance_b)
+      expect(instance_a.hash).to eql(instance_b.hash)
+      expect(instance_a).to      eql(instance_b)
+      expect(instance_a).to_not  be(instance_c)
+      expect(instance_a).to_not  eql(instance_c)
     end
   end
 
@@ -74,8 +73,8 @@ describe Concord do
 
     it 'should create public attr readers' do
       object = class_under_test.new(:foo, :bar)
-      object.foo.should eql(:foo)
-      object.bar.should eql(:bar)
+      expect(object.foo).to eql(:foo)
+      expect(object.bar).to eql(:bar)
     end
   end
 end
