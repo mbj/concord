@@ -109,7 +109,7 @@ class Concord < Module
   # Mixin for public attribute readers
   class Public < self
 
-    # Hook called when module is included 
+    # Hook called when module is included
     #
     # @param [Class,Module] descendant
     #
