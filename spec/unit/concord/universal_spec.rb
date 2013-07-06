@@ -22,7 +22,7 @@ describe Concord do
         # Nicer way to assert this?
         klass.should_receive(:class_eval) do |code, file, line|
           file.should eql(File.expand_path('../../../../lib/concord.rb', __FILE__))
-          line.should be(83)
+          line.should be(86)
         end
         klass.send(:include, Concord.new)
       end
@@ -55,9 +55,10 @@ describe Concord do
     end
   end
 
-  context 'too much composition behavior' do
+  context 'when composing too many objects' do
     specify 'it raises an error' do
-      expect { Concord.new(:a, :b, :c, :d) }.to raise_error(RuntimeError, 'Composition of more than three objects is not allowed')
+      expect { Concord.new(:a, :b, :c, :d) }.to raise_error(RuntimeError, 'Composition of more than 3 objects is not allowed')
+      expect { Concord.new(:a, :b, :c) }.to_not raise_error(RuntimeError)
     end
   end
 

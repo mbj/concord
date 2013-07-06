@@ -5,6 +5,9 @@ require 'equalizer'
 class Concord < Module
   include Adamantium::Flat, Equalizer.new(:names)
 
+  # The maximum number of objects the hosting class is composed of
+  MAX_NR_OF_OBJECTS = 3
+
   # Return names
   #
   # @return [Enumerable<Symbol>]
@@ -22,8 +25,8 @@ class Concord < Module
   # @api private
   #
   def initialize(*names)
-    if names.length > 3
-      raise 'Composition of more than three objects is not allowed'
+    if names.length > MAX_NR_OF_OBJECTS
+      raise "Composition of more than #{MAX_NR_OF_OBJECTS} objects is not allowed"
     end
 
     @names = names
