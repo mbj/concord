@@ -1,2 +1,3 @@
 name: concord
 namespace: Concord
+strategy: --rspec-unit
