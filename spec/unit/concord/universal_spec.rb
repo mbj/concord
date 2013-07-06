@@ -29,6 +29,13 @@ describe Concord do
     end
   end
 
+  context 'with no objects to compose' do
+    it 'assigns no ivars' do
+      instance = Class.new { include Concord.new }.new
+      expect(instance.instance_variables).to be_empty
+    end
+  end
+
   context 'visibility' do
     it 'should set attribute readers to protected' do
       protected_methods = class_under_test.protected_instance_methods.map(&:to_sym)

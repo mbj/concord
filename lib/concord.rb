@@ -84,9 +84,18 @@ class Concord < Module
     names = argument_names
     descendant.class_eval(<<-RUBY, __FILE__, __LINE__ + 1)
       def initialize(#{names})
-        #{instance_variable_names} = #{names}
+        #{initialize_body}
       end
     RUBY
+  end
+
+  # The #initialize method body
+  #
+  # @return [String] either empty or a multiple assignment of names
+  #
+  # @api private
+  def initialize_body
+    "#{instance_variable_names} = #{argument_names}" if names.any?
   end
 
   # Return instance variable names
