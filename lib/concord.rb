@@ -13,7 +13,7 @@ class Concord < Module
   #
   attr_reader :names
 
-private
+  private
 
   # Initialize object
   #
