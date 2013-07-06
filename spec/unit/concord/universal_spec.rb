@@ -31,8 +31,7 @@ describe Concord do
 
   context 'visibility' do
     it 'should set attribute readers to protected' do
-      klass = Class.new
-      klass.send(:include, Concord.new(:foo))
+      klass = Class.new { include Concord.new(:foo) }
       klass.protected_instance_methods.map(&:to_sym).should == [:foo]
     end
   end
