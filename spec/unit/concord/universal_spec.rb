@@ -29,7 +29,7 @@ describe Concord do
     end
   end
 
-  context 'visibiluty' do
+  context 'visibility' do
     it 'should set attribute readers to public' do
       klass = Class.new
       klass.send(:include, Concord.new(:foo))
@@ -55,7 +55,7 @@ describe Concord do
     end
   end
 
-  context 'to much composition behavior' do
+  context 'too much composition behavior' do
     specify 'it raises an error' do
       expect { Concord.new(:a, :b, :c, :d) }.to raise_error(RuntimeError, 'Composition of more than three objects is not allowed')
     end
