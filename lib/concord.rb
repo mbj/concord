@@ -68,8 +68,10 @@ class Concord < Module
   #
   def define_readers(descendant)
     attribute_names = names
-    descendant.send(:attr_reader, *attribute_names)
-    descendant.send(:protected, *attribute_names)
+    descendant.class_eval do
+      attr_reader *attribute_names
+      protected   *attribute_names
+    end
   end
 
   # Define initialize method
