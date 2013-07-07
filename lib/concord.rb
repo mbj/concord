@@ -41,7 +41,7 @@ class Concord < Module
   # @api private
   #
   def included(descendant)
-    define_initializer(descendant)
+    define_initialize(descendant)
     define_readers(descendant)
     define_equalizer(descendant)
   end
@@ -72,7 +72,7 @@ class Concord < Module
     descendant.send(:protected, *attribute_names)
   end
 
-  # Define initializer
+  # Define initialize method
   #
   # @param [Class|Module] descendant
   #
@@ -80,22 +80,18 @@ class Concord < Module
   #
   # @api private
   #
-  def define_initializer(descendant)
-    names = argument_names
-    descendant.class_eval(<<-RUBY, __FILE__, __LINE__ + 1)
-      def initialize(#{names})
-        #{initialize_body}
+  def define_initialize(descendant)
+    ivars, size = instance_variable_names, names.size
+    descendant.class_eval do
+      define_method :initialize do |*args|
+        args_size = args.size
+        if args_size != size
+          raise ArgumentError,
+            "wrong number of arguments (#{args_size} for #{size})"
+        end
+        ivars.zip(args) { |ivar, arg| instance_variable_set(ivar, arg) }
       end
-    RUBY
-  end
-
-  # The #initialize method body
-  #
-  # @return [String] either empty or a multiple assignment of names
-  #
-  # @api private
-  def initialize_body
-    "#{instance_variable_names} = #{argument_names}" if names.any?
+    end
   end
 
   # Return instance variable names
@@ -105,17 +101,7 @@ class Concord < Module
   # @api private
   #
   def instance_variable_names
-    names.map { |name| "@#{name}" }.join(', ')
-  end
-
-  # Return param names
-  #
-  # @return [String]
-  #
-  # @api private
-  #
-  def argument_names
-    names.join(', ')
+    names.map { |name| "@#{name}" }
   end
 
   # Mixin for public attribute readers

@@ -46,7 +46,8 @@ UncommunicativeModuleName:
   - !ruby/regexp /[0-9]$/
 NestedIterators:
   ignore_iterators: []
-  exclude: []
+  exclude:
+  - Concord#define_initialize
   enabled: true
   max_allowed_nesting: 1
 TooManyStatements:

@@ -16,16 +16,26 @@ describe Concord do
   let(:bar) { mock('Bar') }
 
   context 'initializer lines' do
-    unless Devtools.jruby?
-      it 'sets initializer correctly' do
-        klass = Class.new
-        # Nicer way to assert this?
-        klass.should_receive(:class_eval) do |code, file, line|
-          expect(file).to eql(File.expand_path('../../../../lib/concord.rb', __FILE__))
-          expect(line).to be(86)
-        end
-        klass.send(:include, Concord.new)
-      end
+    it 'creates a private #initialize method' do
+      mod = Module.new
+      expect { mod.send(:include, Concord.new) }.
+        to change { mod.private_method_defined?(:initialize) }.
+        from(false).to(true)
+    end
+
+    it 'creates an initializer that asserts the number of arguments' do
+      expect { class_under_test.new(1) }.
+        to raise_error(ArgumentError, 'wrong number of arguments (1 for 2)')
+    end
+
+    it 'creates an initializer that allows 2 arguments' do
+      expect { class_under_test.new(1, 2) }.to_not raise_error
+    end
+
+    it 'creates an initializer that sets the instance variables' do
+      instance = class_under_test.new(1, 2)
+      expect(instance.instance_variable_get(:@foo)).to be(1)
+      expect(instance.instance_variable_get(:@bar)).to be(2)
     end
   end
 
