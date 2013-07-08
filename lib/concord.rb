@@ -93,6 +93,7 @@ class Concord < Module
         end
         ivars.zip(args) { |ivar, arg| instance_variable_set(ivar, arg) }
       end
+      private :initialize
     end
   end
 
