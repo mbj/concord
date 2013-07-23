@@ -10,10 +10,10 @@ describe Concord do
 
   let(:instance_a) { class_under_test.new(foo, bar) }
   let(:instance_b) { class_under_test.new(foo, bar) }
-  let(:instance_c) { class_under_test.new(foo, mock('Baz')) }
+  let(:instance_c) { class_under_test.new(foo, double('Baz')) }
 
-  let(:foo) { mock('Foo') }
-  let(:bar) { mock('Bar') }
+  let(:foo) { double('Foo') }
+  let(:bar) { double('Bar') }
 
   context 'initializer lines' do
     it 'creates a private #initialize method' do
