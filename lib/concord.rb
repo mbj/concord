@@ -69,8 +69,8 @@ class Concord < Module
   def define_readers(descendant)
     attribute_names = names
     descendant.class_eval do
-      attr_reader *attribute_names
-      protected   *attribute_names
+      attr_reader(*attribute_names)
+      protected(*attribute_names)
     end
   end
 
