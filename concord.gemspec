@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name        = 'concord'
-  s.version     = '0.1.3'
+  s.version     = '0.1.4'
   s.authors     = ['Markus Schirp']
   s.email       = ['mbj@schirp-dso.com']
   s.homepage    = 'https://github.com/mbj/concord'
@@ -15,5 +15,5 @@ Gem::Specification.new do |s|
   s.require_paths = ['lib']
 
   s.add_dependency('adamantium', '~> 0.1')
-  s.add_dependency('equalizer',  '~> 0.0.5')
+  s.add_dependency('equalizer',  '~> 0.0.7')
 end
