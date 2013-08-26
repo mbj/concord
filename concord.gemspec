@@ -7,6 +7,7 @@ Gem::Specification.new do |s|
   s.email       = ['mbj@schirp-dso.com']
   s.homepage    = 'https://github.com/mbj/concord'
   s.summary     = %q{Helper for object composition}
+  s.licence     = 'MIT'
   s.description = s.summary
 
   s.files            = `git ls-files`.split("\n")
