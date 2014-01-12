@@ -88,8 +88,7 @@ class Concord < Module
       define_method :initialize do |*args|
         args_size = args.size
         if args_size != size
-          raise ArgumentError,
-            "wrong number of arguments (#{args_size} for #{size})"
+          raise ArgumentError, "wrong number of arguments (#{args_size} for #{size})"
         end
         ivars.zip(args) { |ivar, arg| instance_variable_set(ivar, arg) }
       end

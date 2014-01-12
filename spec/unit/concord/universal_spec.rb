@@ -18,14 +18,14 @@ describe Concord do
   context 'initializer lines' do
     it 'creates a private #initialize method' do
       mod = Module.new
-      expect { mod.send(:include, Concord.new) }.
-        to change { mod.private_method_defined?(:initialize) }.
-        from(false).to(true)
+      expect { mod.send(:include, Concord.new) }
+        .to change { mod.private_method_defined?(:initialize) }
+        .from(false).to(true)
     end
 
     it 'creates an initializer that asserts the number of arguments' do
-      expect { class_under_test.new(1) }.
-        to raise_error(ArgumentError, 'wrong number of arguments (1 for 2)')
+      expect { class_under_test.new(1) }
+        .to raise_error(ArgumentError, 'wrong number of arguments (1 for 2)')
     end
 
     it 'creates an initializer that allows 2 arguments' do
