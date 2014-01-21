@@ -15,6 +15,6 @@ Gem::Specification.new do |s|
   s.executables   = []
   s.require_paths = ['lib']
 
-  s.add_dependency('adamantium', '~> 0.1.0')
-  s.add_dependency('equalizer',  '~> 0.0.7')
+  s.add_dependency('adamantium', '~> 0.2.0')
+  s.add_dependency('equalizer',  '~> 0.0.9')
 end
