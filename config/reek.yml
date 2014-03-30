@@ -52,7 +52,8 @@ NestedIterators:
   max_allowed_nesting: 1
 TooManyStatements:
   max_statements: 7
-  exclude: []
+  exclude:
+  - Concord#define_initialize
   enabled: true
 DuplicateMethodCall:
   allow_calls: []
