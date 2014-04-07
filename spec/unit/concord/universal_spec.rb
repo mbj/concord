@@ -32,6 +32,42 @@ describe Concord do
       expect { class_under_test.new(1, 2) }.to_not raise_error
     end
 
+    it 'creates an initializer that is callable via super' do
+      class_under_test.class_eval do
+        attr_reader :baz
+        public :foo
+        public :bar
+
+        def initialize(foo, bar)
+          @baz = foo + bar
+          super(foo, bar)
+        end
+      end
+
+      instance = class_under_test.new(1, 2)
+      expect(instance.foo).to eql(1)
+      expect(instance.bar).to eql(2)
+      expect(instance.baz).to eql(3)
+    end
+
+    it 'creates an initializer that is callable via zsuper' do
+      class_under_test.class_eval do
+        attr_reader :baz
+        public :foo
+        public :bar
+
+        def initialize(foo, bar)
+          @baz = foo + bar
+          super
+        end
+      end
+
+      instance = class_under_test.new(1, 2)
+      expect(instance.foo).to eql(1)
+      expect(instance.bar).to eql(2)
+      expect(instance.baz).to eql(3)
+    end
+
     it 'creates an initializer that sets the instance variables' do
       instance = class_under_test.new(1, 2)
       expect(instance.instance_variable_get(:@foo)).to be(1)

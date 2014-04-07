@@ -30,6 +30,10 @@ class Concord < Module
     end
 
     @names = names
+    @module = Module.new
+    define_initialize
+    define_readers
+    define_equalizer
   end
 
   # Hook run when module is included
@@ -41,9 +45,7 @@ class Concord < Module
   # @api private
   #
   def included(descendant)
-    define_initialize(descendant)
-    define_readers(descendant)
-    define_equalizer(descendant)
+    descendant.send(:include, @module)
   end
 
   # Define equalizer
@@ -54,8 +56,8 @@ class Concord < Module
   #
   # @api private
   #
-  def define_equalizer(descendant)
-    descendant.send(:include, Equalizer.new(*@names))
+  def define_equalizer
+    @module.send(:include, Equalizer.new(*@names))
   end
 
   # Define readers
@@ -66,9 +68,9 @@ class Concord < Module
   #
   # @api private
   #
-  def define_readers(descendant)
+  def define_readers
     attribute_names = names
-    descendant.class_eval do
+    @module.class_eval do
       attr_reader(*attribute_names)
       protected(*attribute_names)
     end
@@ -82,9 +84,9 @@ class Concord < Module
   #
   # @api private
   #
-  def define_initialize(descendant)
+  def define_initialize
     ivars, size = instance_variable_names, names.size
-    descendant.class_eval do
+    @module.class_eval do
       define_method :initialize do |*args|
         args_size = args.size
         if args_size != size
