@@ -1,3 +1,16 @@
+# v0.1.4 2013-09-22
+
+* Dependency bumps
+
+# v0.1.3 2013-08-31
+
+* Dependency bumps
+
+# v0.1.2 2013-08-07
+
+* Dependency bumps
+* Internal refactorings
+
 # v0.1.1 2013-05-15
 
 + Add Concord::Public mixin defaulting to public attr_readers
