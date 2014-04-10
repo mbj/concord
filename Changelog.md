@@ -1,3 +1,8 @@
+# v0.1.5 2014-04-10
+
+* Dependency bumps
+* Support calling (z)super from custom initialize
+
 # v0.1.4 2013-09-22
 
 * Dependency bumps
