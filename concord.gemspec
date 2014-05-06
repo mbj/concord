@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |s|
   s.name        = 'concord'
-  s.version     = '0.1.4'
+  s.version     = '0.1.5'
   s.authors     = ['Markus Schirp']
   s.email       = ['mbj@schirp-dso.com']
   s.homepage    = 'https://github.com/mbj/concord'
