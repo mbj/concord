@@ -3,12 +3,13 @@ script: 'bundle exec rake ci'
 rvm:
   - 1.9.3
   - 2.0.0
+  - 2.1.1
   - jruby-19mode
-  - jruby-head
+  - jruby-20mode
   - rbx
 matrix:
   allow_failures:
-    - rvm: ruby-head
+    - rvm: rbx
 notifications:
   irc:
     channels:
