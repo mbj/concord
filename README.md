@@ -62,7 +62,7 @@ Tested under all >= 1.9 rubies.
 Installation
 ------------
 
-Install the gem `concord` via your prefered method.
+Install the gem `concord` via your preferred method.
 
 Credits
 -------
