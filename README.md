@@ -4,6 +4,7 @@ concord
 [![Build Status](https://secure.travis-ci.org/mbj/concord.png?branch=master)](http://travis-ci.org/mbj/concord)
 [![Dependency Status](https://gemnasium.com/mbj/concord.png)](https://gemnasium.com/mbj/concord)
 [![Code Climate](https://codeclimate.com/github/mbj/concord.png)](https://codeclimate.com/github/mbj/concord)
+[![Gem Version](https://img.shields.io/gem/v/concord.svg)](https://rubygems.org/gems/concord)
 
 Library to transform this:
 
