@@ -38,8 +38,6 @@ class Concord < Module
 
   # Hook run when module is included
   #
-  # @param [Class|Module] descendant
-  #
   # @return [undefined]
   #
   # @api private
@@ -50,8 +48,6 @@ class Concord < Module
 
   # Define equalizer
   #
-  # @param [Class|Module] descendant
-  #
   # @return [undefined]
   #
   # @api private
@@ -61,8 +57,6 @@ class Concord < Module
   end
 
   # Define readers
-  #
-  # @param [Class|Module] descendant
   #
   # @return [undefined]
   #
@@ -77,8 +71,6 @@ class Concord < Module
   end
 
   # Define initialize method
-  #
-  # @param [Class|Module] descendant
   #
   # @return [undefined]
   #
