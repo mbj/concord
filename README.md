@@ -1,10 +1,15 @@
 concord
 =======
 
-[![Build Status](https://secure.travis-ci.org/mbj/concord.png?branch=master)](http://travis-ci.org/mbj/concord)
-[![Dependency Status](https://gemnasium.com/mbj/concord.png)](https://gemnasium.com/mbj/concord)
-[![Code Climate](https://codeclimate.com/github/mbj/concord.png)](https://codeclimate.com/github/mbj/concord)
-[![Gem Version](https://img.shields.io/gem/v/concord.svg)](https://rubygems.org/gems/concord)
+[![Gem Version](http://img.shields.io/gem/v/concord.svg)][gem]
+[![Build Status](http://img.shields.io/travis/mbj/concord/master.svg)][travis]
+[![Dependency Status](http://img.shields.io/gemnasium/mbj/concord.svg)][gemnasium]
+[![Code Climate](http://img.shields.io/codeclimate/github/mbj/concord.svg)][codeclimate]
+
+[gem]: https://rubygems.org/gems/concord
+[travis]: https://travis-ci.org/mbj/concord
+[gemnasium]: https://gemnasium.com//mbj/concord
+[codeclimate]: https://codeclimate.com/github/mbj/concord
 
 Library to transform this:
 
