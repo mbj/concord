@@ -108,12 +108,12 @@ describe Concord do
 
   context 'when composing too many objects' do
     specify 'it raises an error' do
-      expect {
+      expect do
         Concord.new(:a, :b, :c, :d)
-      }.to raise_error(RuntimeError, 'Composition of more than 3 objects is not allowed')
-      expect {
+      end.to raise_error(RuntimeError, 'Composition of more than 3 objects is not allowed')
+      expect do
         Concord.new(:a, :b, :c)
-      }.to_not raise_error
+      end.to_not raise_error
     end
   end
 

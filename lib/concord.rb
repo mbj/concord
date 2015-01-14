@@ -26,11 +26,10 @@ class Concord < Module
   #
   def initialize(*names)
     if names.length > MAX_NR_OF_OBJECTS
-      raise "Composition of more than #{MAX_NR_OF_OBJECTS} objects is not allowed"
+      fail "Composition of more than #{MAX_NR_OF_OBJECTS} objects is not allowed"
     end
 
-    @names = names
-    @module = Module.new
+    @names, @module = names, Module.new
     define_initialize
     define_readers
     define_equalizer
@@ -76,13 +75,15 @@ class Concord < Module
   #
   # @api private
   #
+  # rubocop:disable MethodLength
+  #
   def define_initialize
     ivars, size = instance_variable_names, names.size
     @module.class_eval do
       define_method :initialize do |*args|
         args_size = args.size
         if args_size != size
-          raise ArgumentError, "wrong number of arguments (#{args_size} for #{size})"
+          fail ArgumentError, "wrong number of arguments (#{args_size} for #{size})"
         end
         ivars.zip(args) { |ivar, arg| instance_variable_set(ivar, arg) }
       end

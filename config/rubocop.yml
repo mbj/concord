@@ -1,19 +1,9 @@
 inherit_from: ../.rubocop.yml
 
-AllCops:
-  Include:
-    - '**/*.rake'
-    - 'Gemfile'
-    - 'Gemfile.triage'
-
 # Avoid parameter lists longer than five parameters.
 ParameterLists:
   Max: 3
   CountKeywordArgs: true
-
-MethodLength:
-  CountComments: false
-  Max: 15
 
 # Avoid more than `Max` levels of nesting.
 BlockNesting:
@@ -27,30 +17,25 @@ CollectionMethods:
     find:     'detect'
     find_all: 'select'
 
+# Do not force public/protected/private keyword to be indented at the same
+# level as the def keyword. My personal preference is to outdent these keywords
+# because I think when scanning code it makes it easier to identify the
+# sections of code and visually separate them. When the keyword is at the same
+# level I think it sort of blends in with the def keywords and makes it harder
+# to scan the code and see where the sections are.
+AccessModifierIndentation:
+  Enabled: false
+
 # Limit line length
 LineLength:
-  Max: 113  # TODO: lower to 79 once the rubocop branch in shared/Gemfile is removed
-
-ClassLength:
-  Max: 204
-
-# Disabled because of indenting with private keyword in class bodies.
-IndentationWidth:
-  Enabled: false
-
-# I like raise more
-SignalException:
-  Enabled: false
-
-# False positive in unparser source
-OneLineConditional:
-  Enabled: false
-
-Documentation:
-  Enabled: false
+  Max: 106
 
 # Disable documentation checking until a class needs to be documented once
 Documentation:
+  Enabled: false
+
+# Do not always use &&/|| instead of and/or.
+AndOr:
   Enabled: false
 
 # Do not favor modifier if/unless usage when you have a single-line body
@@ -69,14 +54,60 @@ ConstantName:
 TrivialAccessors:
   Enabled: false
 
-# Do not prefer do/end over {} for multiline blocks
-Blocks:
+# Allow empty lines around class body
+EmptyLinesAroundClassBody:
   Enabled: false
 
-# I like to have an empty line before closing the currently opened body
-EmptyLinesAroundBody:
+# Allow empty lines around module body
+EmptyLinesAroundModuleBody:
   Enabled: false
 
-# I like my style more
-AccessModifierIndentation:
+# Allow empty lines around block body
+EmptyLinesAroundBlockBody:
+  Enabled: false
+
+# Allow multiple line operations to not require indentation
+MultilineOperationIndentation:
+  Enabled: false
+
+# Prefer String#% over Kernel#sprintf
+FormatString:
+  Enabled: false
+
+# Use square brackets for literal Array objects
+PercentLiteralDelimiters:
+  PreferredDelimiters:
+    '%':  '{}'
+    '%i': '[]'
+    '%q': ()
+    '%Q': ()
+    '%r': '{}'
+    '%s': ()
+    '%w': '[]'
+    '%W': '[]'
+    '%x': ()
+
+# Align if/else blocks with the variable assignment
+EndAlignment:
+  AlignWith: variable
+
+# Do not always align parameters when it is easier to read
+AlignParameters:
+  Exclude:
+    - spec/**/*_spec.rb
+
+# Prefer #kind_of? over #is_a?
+ClassCheck:
+  EnforcedStyle: kind_of?
+
+# Do not prefer double quotes to be used when %q or %Q is more appropriate
+UnneededPercentQ:
+  Enabled: false
+
+# Allow a maximum ABC score
+Metrics/AbcSize:
+  Max: 21.02
+
+# Do not prefer lambda.call(...) over lambda.(...)
+LambdaCall:
   Enabled: false
