@@ -7,8 +7,6 @@ rvm:
   - '2.2'
   - rbx
 matrix:
-  allow_failures:
-    - rvm: rbx
   include:
     - rvm: jruby
       env: JRUBY_OPTS="$JRUBY_OPTS --debug --1.9"
