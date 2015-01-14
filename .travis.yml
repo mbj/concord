@@ -1,17 +1,16 @@
 language: ruby
 script: 'bundle exec rake ci'
 rvm:
-  - 1.9.3
-  - 2.0.0
-  - 2.1.1
-  - jruby-19mode
+  - '1.9'
+  - '2.0'
+  - '2.1'
+  - '2.2'
   - rbx
 matrix:
   allow_failures:
     - rvm: rbx
-notifications:
-  irc:
-    channels:
-      - irc.freenode.org#rom-rb
-    on_success: never
-    on_failure: change
+  include:
+    - rvm: jruby
+      env: JRUBY_OPTS="$JRUBY_OPTS --debug --1.9"
+    - rvm: jruby
+      env: JRUBY_OPTS="$JRUBY_OPTS --debug --2.0"
