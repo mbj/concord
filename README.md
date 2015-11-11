@@ -58,7 +58,7 @@ class ComposedObject
 end
 ```
 
-Sure the replacement is missing YARD docs, but IMHO it is better.
+You can still ad YARD docs for generated interface.
 
 Rubies
 ------
