@@ -1,3 +1,7 @@
+# v0.1.6 2020-09-10
+
+* Change packaging to avoid git interaction
+
 # v0.1.5 2014-04-10
 
 * Dependency bumps

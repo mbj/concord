@@ -1,8 +1,6 @@
-# -*- encoding: utf-8 -*-
-
 Gem::Specification.new do |s|
   s.name        = 'concord'
-  s.version     = '0.1.5'
+  s.version     = '0.1.6'
   s.authors     = ['Markus Schirp']
   s.email       = ['mbj@schirp-dso.com']
   s.homepage    = 'https://github.com/mbj/concord'
@@ -10,10 +8,8 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
   s.description = s.summary
 
-  s.files            = `git ls-files`.split("\n")
-  s.test_files       = `git ls-files -- {spec}/*`.split("\n")
-  s.executables   = []
-  s.require_paths = ['lib']
+  s.files         = Dir.glob('lib/**/*')
+  s.require_paths = %w(lib)
 
   s.required_ruby_version = '>= 1.9.3'
 

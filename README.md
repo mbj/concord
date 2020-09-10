@@ -1,15 +1,8 @@
 concord
 =======
 
-[![Gem Version](http://img.shields.io/gem/v/concord.svg)][gem]
-[![Build Status](http://img.shields.io/travis/mbj/concord/master.svg)][travis]
-[![Dependency Status](http://img.shields.io/gemnasium/mbj/concord.svg)][gemnasium]
-[![Code Climate](http://img.shields.io/codeclimate/github/mbj/concord.svg)][codeclimate]
-
-[gem]: https://rubygems.org/gems/concord
-[travis]: https://travis-ci.org/mbj/concord
-[gemnasium]: https://gemnasium.com//mbj/concord
-[codeclimate]: https://codeclimate.com/github/mbj/concord
+[![Gem Version](http://img.shields.io/gem/v/concord.svg)][https://rubygems.org/gems/concord]
+![CI](https://github.com/mbj/concord/workflows/CI/badge.svg)
 
 Library to transform this:
 
