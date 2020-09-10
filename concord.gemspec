@@ -19,4 +19,6 @@ Gem::Specification.new do |s|
 
   s.add_dependency('adamantium', '~> 0.2.0')
   s.add_dependency('equalizer',  '~> 0.0.9')
+
+  s.add_development_dependency('devtools', '~> 0.1.26')
 end

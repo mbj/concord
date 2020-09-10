@@ -1,5 +1,12 @@
+# frozen_string_literal: true
+
 source 'https://rubygems.org'
 
 gemspec
 
-gem 'devtools', git: 'https://github.com/rom-rb/devtools.git', branch: 'master'
+gem 'mutant'
+gem 'mutant-rspec'
+
+source 'https://oss:Px2ENN7S91OmWaD5G7MIQJi1dmtmYrEh@gem.mutant.dev' do
+  gem 'mutant-license'
+end
